@@ -1,0 +1,18 @@
+/* Elegant Blue/White theme overrides
+   IMPORTANT: Keep this file as CSS ONLY.
+*/
+
+/* Primary brand colors */
+.bg-custom-navy{ background:#F8FBFF; border-bottom:1px solid rgba(11,31,58,0.12); }
+.text-custom-green{ color:#1E5EFF; }
+
+.bg-custom-green{ background:#1E5EFF; }
+.bg-custom-green:hover{ background:#2B6CFF; }
+
+
+/* focus outline to match theme */
+:focus-visible{
+  outline:2px solid rgba(43,108,255,0.55);
+  outline-offset:2px;
+}
+
