@@ -147,29 +147,54 @@
     <div class="container">
         <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 mb-4">
             <div>
-                <h2 class="fw-bold">Daftar Lapangan</h2>
-                <div class="text-muted">(Dummy data sementara — nanti dihubungkan ke database.)</div>
-            </div>
-            <a href="{{ url('/user/lapangans') }}" class="btn btn-outline-primary fw-semibold">Lihat Semua</a>
-        </div>
+                <h2 class="fw-bold">Daftar Lapangan</h2>        
 
         <div class="row g-4">
             @php
-                $dummy = [
-                    ['name'=>'Lapangan Futsal Garuda', 'loc'=>'Jakarta Selatan', 'price'=>'Rp 75.000/jam', 'rating'=>4.8],
-                    ['name'=>'Lapangan Futsal Champion', 'loc'=>'Jakarta Timur', 'price'=>'Rp 65.000/jam', 'rating'=>4.6],
-                    ['name'=>'Lapangan Futsal Victory', 'loc'=>'Jakarta Pusat', 'price'=>'Rp 80.000/jam', 'rating'=>4.7],
-                    ['name'=>'Lapangan Futsal Arena Mega', 'loc'=>'Bogor', 'price'=>'Rp 70.000/jam', 'rating'=>4.5],
-                    ['name'=>'Lapangan Futsal Galaxy', 'loc'=>'Depok', 'price'=>'Rp 60.000/jam', 'rating'=>4.4],
-                    ['name'=>'Lapangan Futsal Sportify', 'loc'=>'Tangerang', 'price'=>'Rp 85.000/jam', 'rating'=>4.9],
-                ];
+               $dummy = [
+    [
+        'id'=> 1,
+        'name' => 'Lapangan Futsal Vinyl',
+        'loc' => 'Bandung',
+        'price' => 'Rp 100.000/jam',
+        'rating' => 4.5,
+        'image' => 'https://i.pinimg.com/736x/84/83/f5/8483f555f7128a38448d2cb2fb50b31d.jpg'
+    ],
+    [
+       'id'=> 2,
+        'name' => 'Lapangan Futsal Rumput',
+        'loc' => 'Bandung',
+        'price' => 'Rp 120.000/jam',
+        'rating' => 4.4,
+        'image' => 'https://i.pinimg.com/736x/7e/ec/a5/7eeca5873ee1850f682aaa0c6e55b9ea.jpg'
+    ],
+    [
+        'id'=> 3,
+        'name' => 'Lapangan Futsal Traflex',
+        'loc' => 'Bandung',
+        'price' => 'Rp120.000/jam',
+        'rating' => 4.4,
+        'image' => 'https://i.pinimg.com/736x/a7/04/53/a704534b6aa2389472fe3fe749435112.jpg'
+    ],
+    [
+        'id'=> 4,
+        'name' => 'Lapangan Futsal Traflex',
+        'loc' => 'Bandung',
+        'price' => 'Rp120.000/jam',
+        'rating' => 4.4,
+        'image' => 'https://i.pinimg.com/736x/ee/07/e6/ee07e6152016e59916e7aad9f09f70f0.jpg'
+    ],
+];
             @endphp
 
             @foreach($dummy as $item)
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card border-0 shadow-sm h-100 overflow-hidden">
-                        <div style="height:86px;background:linear-gradient(90deg,#0d6efd,#198754);"></div>
-                        <div class="card-body p-4">
+
+                     <img src="{{ $item['image'] }}"
+                        style="width:100%; height:200px; object-fit:cover;">
+
+                         <div class="card-body p-4">
                             <div class="d-flex align-items-start justify-content-between gap-3">
                                 <div>
                                     <div class="fw-bold">{{ $item['name'] }}</div>
@@ -182,8 +207,11 @@
 
                             <div class="d-flex align-items-center justify-content-between mt-4">
                                 <div class="fw-bold">{{ $item['price'] }}</div>
-                                <a class="btn btn-dark btn-sm fw-semibold" href="{{ url('/user/lapangans') }}">Detail</a>
-                            </div>
+                                  <a class="btn btn-dark btn-sm fw-semibold"
+                                      href="{{ route('lapangan.show', $item['id']) }}">
+                                         Detail
+                                </a>                         
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -248,13 +276,13 @@
 
                 <div class="mt-4">
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <span>📧</span><span class="text-muted">support@futsalbooking.id</span>
+                        <span>📧</span><span class="text-muted">zidan@futsalbooking.id</span>
                     </div>
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <span>☎️</span><span class="text-muted">+62 812-3456-7890</span>
+                        <span>☎️</span><span class="text-muted">+62 895-1312-2404</span>
                     </div>
                     <div class="d-flex align-items-center gap-3">
-                        <span>📍</span><span class="text-muted">Jakarta & sekitarnya</span>
+                        <span>📍</span><span class="text-muted">Bandung & Sekitarnya</span>
                     </div>
                 </div>
             </div>

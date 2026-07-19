@@ -17,10 +17,9 @@ class RedirectByRoleController extends Controller
             return redirect()->route('admin.dashboard');
         }
 
-        if ($user->role === 'user') {
-            return redirect()->route('user.dashboard');
-        }
-
+        if ($user->role === 'customer') {
+    return redirect()->route('welcome');
+}
         // Jika tidak punya role, kembalikan ke halaman utama
         return redirect()->route('welcome');
     }

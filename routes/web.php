@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\CourtController;
 use App\Http\Controllers\RedirectByRoleController;
+use App\Http\Controllers\LapanganController;
 
 // 1. HALAMAN UTAMA (Welcome)
 Route::get('/', function () {
@@ -15,7 +16,8 @@ Route::get('/redirect-by-role', RedirectByRoleController::class)->middleware('au
 
 // 3. FITUR PENCARIAN LAPANGAN (User)
 Route::get('/user/lapangans', [CourtController::class, 'search'])->name('lapangan.search');
-
+Route::get('/lapangan/{id}', [LapanganController::class, 'show'])
+    ->name('lapangan.show');
 // 4. ROUTE OTOMATIS AUTHENTICATION (Login, Register, Logout dari Laravel Auth)
 Auth::routes();
 

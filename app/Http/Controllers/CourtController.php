@@ -3,17 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Lapangan;
 
 class CourtController extends Controller
 {
     public function search(Request $request)
     {
-        // Mengambil data inputan dari form pencarian di front-end
         $lokasi = $request->input('lokasi');
         $tanggal = $request->input('tanggal');
         $waktu = $request->input('waktu');
 
-        // Mengirim data ke halaman view bernama 'lapangan'
-        return view('lapangan', compact('lokasi', 'tanggal', 'waktu'));
+        $lapangans = Lapangan::all();
+
+        return view('lapangan', compact(
+            'lapangans',
+            'lokasi',
+            'tanggal',
+            'waktu'
+        ));
     }
 }

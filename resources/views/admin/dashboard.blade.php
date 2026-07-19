@@ -1,70 +1,95 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
-        <div>
-            <h2 class="fw-bold mb-1">Dashboard Admin</h2>
-            <p class="text-muted mb-0">Ringkasan data lapangan, booking, dan user.</p>
-        </div>
-        <div class="d-flex gap-2">
-            <a href="{{ url('/admin/bookings') }}" class="btn btn-outline-primary fw-semibold">Kelola Booking</a>
-            <a href="{{ url('/admin/lapangans') }}" class="btn btn-success fw-semibold">Kelola Lapangan</a>
-        </div>
+<div class="container py-4">
 
-    <div class="row g-3">
-        <div class="col-12 col-md-4">
-            <div class="card border-0 shadow-sm h-100">
+    <!-- Banner -->
+    <div class="card border-0 shadow-lg rounded-4 mb-4 text-white"
+        style="background: linear-gradient(135deg,#16a34a,#22c55e);">
+        <div class="card-body p-4">
+            <h2 class="fw-bold">👋 Selamat Datang, Admin</h2>
+            <p class="mb-0">
+                Kelola data lapangan, booking, dan pengguna dengan mudah.
+            </p>
+        </div>
+    </div>
+
+    <!-- Statistik -->
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow rounded-4 text-center h-100">
                 <div class="card-body">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div>
-                            <div class="text-muted small">Jumlah Lapangan</div>
-                            <div class="fs-2 fw-bold text-dark">{{ $jumlahLapangan ?? 0 }}</div>
-                        <div class="bg-success bg-opacity-10 text-success rounded-3 p-3" aria-hidden="true">
-                            🏟️
-                        </div>
-                    <a href="{{ url('/admin/lapangans') }}" class="stretched-link"></a>
+                    <div style="font-size:55px;">🏟️</div>
+                    <h5 class="mt-2">Jumlah Lapangan</h5>
+                    <h2 class="fw-bold text-success">
+                        {{ $jumlahLapangan ?? 0 }}
+                    </h2>
                 </div>
+            </div>
         </div>
 
-        <div class="col-12 col-md-4">
-            <div class="card border-0 shadow-sm h-100">
+        <div class="col-md-4">
+            <div class="card border-0 shadow rounded-4 text-center h-100">
                 <div class="card-body">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div>
-                            <div class="text-muted small">Jumlah Booking</div>
-                            <div class="fs-2 fw-bold text-dark">{{ $jumlahBooking ?? 0 }}</div>
-                        <div class="bg-primary bg-opacity-10 text-primary rounded-3 p-3" aria-hidden="true">
-                            📅
-                        </div>
-                    <a href="{{ url('/admin/bookings') }}" class="stretched-link"></a>
+                    <div style="font-size:55px;">📅</div>
+                    <h5 class="mt-2">Jumlah Booking</h5>
+                    <h2 class="fw-bold text-primary">
+                        {{ $jumlahBooking ?? 0 }}
+                    </h2>
                 </div>
+            </div>
         </div>
 
-        <div class="col-12 col-md-4">
-            <div class="card border-0 shadow-sm h-100">
+        <div class="col-md-4">
+            <div class="card border-0 shadow rounded-4 text-center h-100">
                 <div class="card-body">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div>
-                            <div class="text-muted small">Jumlah User</div>
-                            <div class="fs-2 fw-bold text-dark">{{ $jumlahUser ?? 0 }}</div>
-                        <div class="bg-dark bg-opacity-10 text-dark rounded-3 p-3" aria-hidden="true">
-                            👤
-                        </div>
-                    <a href="{{ url('/admin/users') }}" class="stretched-link"></a>
+                    <div style="font-size:55px;">👤</div>
+                    <h5 class="mt-2">Jumlah User</h5>
+                    <h2 class="fw-bold text-dark">
+                        {{ $jumlahUser ?? 0 }}
+                    </h2>
                 </div>
+            </div>
         </div>
 
-    <div class="mt-4 card border-0 shadow-sm">
+    </div>
+
+    <!-- Aksi Cepat -->
+    <div class="card border-0 shadow rounded-4 mt-5">
         <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                <div>
-                    <h5 class="fw-bold mb-1">Aksi Cepat</h5>
-                    <div class="text-muted small">Mulai kelola data dan konfirmasi booking.</div>
-                <div class="d-flex gap-2">
-                    <a href="{{ url('/admin/lapangans/create') }}" class="btn btn-success fw-semibold">Tambah Lapangan</a>
-                    <a href="{{ url('/admin/bookings') }}" class="btn btn-outline-primary fw-semibold">Update Status Booking</a>
+
+            <h4 class="fw-bold mb-4">
+                ⚡ Aksi Cepat
+            </h4>
+
+            <div class="row">
+
+                <div class="col-md-4 mb-3">
+                    <a href="{{ url('/admin/lapangans') }}"
+                       class="btn btn-success w-100 py-3">
+                        🏟 Kelola Lapangan
+                    </a>
                 </div>
+
+                <div class="col-md-4 mb-3">
+                    <a href="{{ url('/admin/bookings') }}"
+                       class="btn btn-primary w-100 py-3">
+                        📅 Kelola Booking
+                    </a>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <a href="{{ url('/admin/users') }}"
+                       class="btn btn-dark w-100 py-3">
+                        👤 Kelola User
+                    </a>
+                </div>
+
+            </div>
+
         </div>
+    </div>
+
 </div>
 @endsection
